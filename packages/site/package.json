@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "@pui-vue/ui": "workspace:*",
-    "vite-plugin-vitepress-demo": "^1.0.6-beta.1"
+    "@vueuse/core": "^7.1.2",
+    "vite-plugin-vitepress-demo": "^1.1.0",
+    "vue": "^3.2.24"
   },
   "scripts": {
     "dev": "vitepress dev docs --host",
