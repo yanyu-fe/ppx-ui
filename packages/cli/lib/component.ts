@@ -36,17 +36,17 @@ export default defineComponent({
 // 创建index模板
 export const createIndexTemplate = ({componentName})=>`
 import type { App } from "vue";
-import ${bigCamelCase(componentName)} from "./${componentName}"
+import ${PUI_PREFIX}${bigCamelCase(componentName)} from "./${componentName}"
 
-${bigCamelCase(componentName)}.install = function(app:App) {
-  app.component(${bigCamelCase(componentName)}.name,${bigCamelCase(componentName)});
+${PUI_PREFIX}${bigCamelCase(componentName)}.install = function(app:App) {
+  app.component(${PUI_PREFIX}${bigCamelCase(componentName)}.name,${PUI_PREFIX}${bigCamelCase(componentName)});
 }
 
-export { ${bigCamelCase(componentName)} };
+export { ${PUI_PREFIX}${bigCamelCase(componentName)} };
 
 export default {
   install(app:App):void{
-    app.use(${bigCamelCase(componentName)} as any);
+    app.use(${PUI_PREFIX}${bigCamelCase(componentName)} as any);
   }
 }
 `

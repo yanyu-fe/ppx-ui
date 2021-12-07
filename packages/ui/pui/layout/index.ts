@@ -1,15 +1,15 @@
 
 import type { App } from "vue";
-import Layout from "./layout"
+import PLayout from "./layout"
 
-Layout.install = function(app:App) {
-  app.component(Layout.name,Layout);
+PLayout.install = function(app:App) {
+  app.component(PLayout.name,PLayout);
 }
 
-export { Layout };
+export { PLayout };
 
 export default {
   install(app:App):void{
-    app.use(Layout as any);
+    app.use(PLayout as any);
   }
 }

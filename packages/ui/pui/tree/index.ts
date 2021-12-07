@@ -1,14 +1,14 @@
 import type { App } from "vue";
-import Tree from "./tree"
+import PTree from "./tree"
 
-Tree.install = function(app:App) {
-  app.component(Tree.name,Tree);
+PTree.install = function(app:App) {
+  app.component(PTree.name,PTree);
 }
 
-export { Tree };
+export { PTree };
 
 export default {
   install(app:App):void{
-    app.use(Tree as any);
+    app.use(PTree as any);
   }
 }

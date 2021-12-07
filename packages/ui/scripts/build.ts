@@ -4,18 +4,20 @@ import { build } from "vite"
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import { lstatSync, readdirSync } from "fs";
-import type { RollupOptions } from "rollup"
+import type { RollupOptions } from "rollup";
+import typescript from "@rollup/plugin-typescript";
 const entry = resolve(__dirname,"../pui");
 const outDir = resolve(__dirname,"../dist");
 
 const baseConfig:InlineConfig = {
     configFile:false,
     publicDir:false,
-    plugins:[
-        vue(),
-        vueJsx()
-    ]
 }
+
+const basePlugins = [
+    vue(),
+    vueJsx()
+]
 
 const rollupOptions:RollupOptions = {
     external:['vue'],
@@ -39,7 +41,20 @@ const buildSingle = async (name:string) =>{
                 formats:['es']
             },
             outDir:resolve(outDir,`es/${name}`)
-        }
+        },
+        plugins:[
+            ...basePlugins,
+            typescript({
+                lib:["esnext","dom"],
+                include:[`pui/${name}/**/*.ts`,`pui/${name}/**/*.tsx`],
+                target:"esnext",
+                // outDir: resolve(outDir,`es/${name}`),
+                declarationDir:resolve(outDir,`es/${name}`),
+                emitDeclarationOnly:true,
+                declaration:true,
+                jsx:"preserve"
+            })
+        ]
     })
     await build({
         ...baseConfig,
@@ -52,7 +67,20 @@ const buildSingle = async (name:string) =>{
                 formats:['umd']
             },
             outDir:resolve(outDir,`umd/${name}`)
-        }
+        },
+        plugins:[
+            ...basePlugins,
+            typescript({
+                lib: ["esnext","dom"],
+                include: [`pui/${name}/**/*.ts`,`pui/${name}/**/*.tsx`],
+                target: "esnext",
+                outDir: resolve(outDir,`umd/${name}`),
+                declarationDir: resolve(outDir,`umd/${name}`),
+                declaration:true,
+                emitDeclarationOnly:true,
+                jsx:"preserve"
+            })
+        ]
     })
 }
 
@@ -63,12 +91,49 @@ const buildAll = async () => {
             rollupOptions,
             lib:{
                 entry: resolve(entry,"index.ts"),
-                name:"pui",
-                fileName:"pui",
-                formats:['es','umd']
+                name:"index",
+                fileName:()=>'index.js',
+                formats:['es']
             },
-            outDir
-        }
+            outDir:resolve(outDir,'es')
+        },
+        plugins:[
+            ...basePlugins,
+            typescript({
+                lib:["esnext","dom"],
+                include:["pui/index.ts"],
+                target:"esnext",
+                outDir:resolve(outDir,'es'),
+                declarationDir:resolve(outDir,'es'),
+                declaration:true,
+                emitDeclarationOnly:true,
+            })
+        ]
+    })
+    await build({
+        ...baseConfig,
+        build:{
+            rollupOptions,
+            lib:{
+                entry: resolve(entry,"index.ts"),
+                name:"index",
+                fileName:()=>'index.js',
+                formats:['umd']
+            },
+            outDir:resolve(outDir,'umd')
+        },
+        plugins:[
+            ...basePlugins,
+            typescript({
+                lib:["esnext","dom"],
+                include:["pui/index.ts"],
+                target:"esnext",
+                outDir:resolve(outDir,'umd'),
+                declarationDir:resolve(outDir,'umd'),
+                declaration:true,
+                emitDeclarationOnly:true,
+            })
+        ]
     })
 }
 

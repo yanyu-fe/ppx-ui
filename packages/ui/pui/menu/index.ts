@@ -1,15 +1,14 @@
-
 import type { App } from "vue";
-import Menu from "./menu"
+import PMenu from "./menu"
 
-Menu.install = function(app:App) {
-  app.component(Menu.name,Menu);
+PMenu.install = function(app:App) {
+  app.component(PMenu.name,PMenu);
 }
 
-export { Menu };
+export { PMenu };
 
 export default {
   install(app:App):void{
-    app.use(Menu as any);
+    app.use(PMenu as any);
   }
 }

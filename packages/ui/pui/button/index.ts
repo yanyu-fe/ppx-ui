@@ -1,15 +1,15 @@
 
 import type { App } from "vue";
-import Button from "./button"
+import PButton from "./button"
 
-Button.install = function(app:App) {
-  app.component(Button.name,Button);
+PButton.install = function(app:App) {
+  app.component(PButton.name,PButton);
 }
 
-export { Button };
+export { PButton };
 
 export default {
   install(app:App):void{
-    app.use(Button as any);
+    app.use(PButton as any);
   }
 }

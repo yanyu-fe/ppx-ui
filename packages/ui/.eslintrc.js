@@ -52,10 +52,6 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      { disallowTypeAnnotations: false },
-    ],
 
     // vue
     'vue/no-v-html': 'off',

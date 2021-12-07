@@ -1,15 +1,15 @@
 
 import type { App } from "vue";
-import Affix from "./affix"
+import PAffix from "./affix"
 
-Affix.install = function(app:App) {
-  app.component(Affix.name,Affix);
+PAffix.install = function(app:App) {
+  app.component(PAffix.name,PAffix);
 }
 
-export { Affix };
+export { PAffix };
 
 export default {
   install(app:App):void{
-    app.use(Affix as any);
+    app.use(PAffix as any);
   }
 }

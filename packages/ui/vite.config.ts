@@ -5,7 +5,12 @@ import { resolve } from 'path'
 export default defineConfig({
   resolve:{
     alias:{
-      'pui':resolve(__dirname,'components')
+      '@pui-vue/ui':resolve(__dirname,'pui')
+    }
+  },
+  server:{
+    fs:{
+      strict:false
     }
   },
   build:{
