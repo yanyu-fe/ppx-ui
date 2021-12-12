@@ -21,6 +21,7 @@
   --c-border: #f0f0f0;
   --c-text-lighter: #ffffff;
   --c-header-shadow:0 2px 8px #f0f1f2;
+  --c-header-shadow--right: 2px 0 8px #f0f1f2;
   /**
    * Typography
    * --------------------------------------------------------------------- */
@@ -79,6 +80,7 @@ html.dark {
   --c-brand-light: #112123;
   --c-border: #303030;
   --c-header-shadow: 0 2px 8px #000000a6;
+  --c-header-shadow--right: 2px 0 8px #000000a6;
 }
 
 /** Fallback Styles */

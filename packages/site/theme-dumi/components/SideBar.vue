@@ -37,6 +37,12 @@ defineProps<{ open: boolean }>()
     transform: translateX(0);
   }
 }
+@media (max-width: 720px) {
+  .sidebar{
+    border-right: none!important;
+    box-shadow:var(--c-header-shadow--right) ;
+  }
+}
 
 @media (min-width: 960px) {
   .sidebar {

@@ -31,7 +31,6 @@ const headers = computed(() => data.page.value.headers ?? []);
 .page {
   padding-top: var(--header-height);
   margin-top: 1.5rem;
-  margin-right: 1rem;
 }
 
 @media (min-width: 720px) {
@@ -47,10 +46,8 @@ const headers = computed(() => data.page.value.headers ?? []);
 }
 
 .container {
-  //margin: 0 auto;
-  //padding: 0 1.5rem 4rem;
-  //max-width: 48rem;
   display: flex;
+  margin-right: 1rem;
 }
 .left{
   width: calc(100% - 11rem);
@@ -84,12 +81,15 @@ const headers = computed(() => data.page.value.headers ?? []);
     /* fix carbon ads display */
     clear: both;
   }
+  .container{
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
   .right{
     display: none;
   }
   .left{
     width: 100%;
-    margin-left: 1rem;
   }
 }
 </style>
