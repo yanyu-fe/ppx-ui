@@ -2,27 +2,18 @@ export default {
     "/":[
         {
             text:"测试",
-            children:[
-                {
-                    text:'sider1',
-                    link:'/sider1',
-                    children:[
-                        {
-                            text:"sider1-1",
-                            link:'/sider1-1'
-                        }
-                    ]
-                },
-                {
-                    text:'sider2',
-                    link:'/sider2',
-                },
-                {
-                    text:'sider3',
-                    link:'/sider3',
-                }
-            ]
-        }
-    ]
+            children:createLink()
+        },
+    ],
 }
 
+function createLink() {
+    const children = [];
+    for (let i = 0; i < 100; i++) {
+        children.push({
+            text:'sider' + i,
+            link:'/sider' + i,
+        })
+    }
+    return children;
+}
