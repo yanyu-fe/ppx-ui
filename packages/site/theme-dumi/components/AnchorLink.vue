@@ -43,7 +43,7 @@ const props = defineProps({
 .anchor-link{
   border-left: 2px solid var(--c-border);
   padding: 3px 0;
-  transition: all .5s;
+  transition: all 0.25s ease;
 }
 .anchor-link-title{
   margin-left: 1rem;
