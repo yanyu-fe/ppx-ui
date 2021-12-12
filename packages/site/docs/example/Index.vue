@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p-tree :sourceData="[]"></p-tree>
+    <p-tree :sourceData="[]">sadas</p-tree>
   </div>
 </template>
 

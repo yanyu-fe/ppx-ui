@@ -72,7 +72,7 @@ function getSidebarLinks(): HTMLAnchorElement[] {
   )
 }
 
-function getAnchors(sidebarLinks: HTMLAnchorElement[]): HTMLAnchorElement[] {
+export function getAnchors(sidebarLinks: HTMLAnchorElement[]): HTMLAnchorElement[] {
   return [].slice
     .call(document.querySelectorAll('.header-anchor'))
     .filter((anchor: HTMLAnchorElement) =>
@@ -112,7 +112,7 @@ function isAnchorActive(
   return [false, null]
 }
 
-function throttleAndDebounce(fn: () => void, delay: number): () => void {
+export function throttleAndDebounce(fn: () => void, delay: number): () => void {
   let timeout: number
   let called = false
 

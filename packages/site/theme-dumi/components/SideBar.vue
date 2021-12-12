@@ -25,7 +25,7 @@ defineProps<{ open: boolean }>()
   left: 0;
   z-index: var(--z-index-sidebar);
   border-right: 1px solid var(--c-divider);
-  width: 16.4rem;
+  width: 14rem;
   background-color: var(--c-bg);
   overflow-y: auto;
   transform: translateX(-100%);
@@ -40,7 +40,7 @@ defineProps<{ open: boolean }>()
 
 @media (min-width: 960px) {
   .sidebar {
-    width: 20rem;
+    width: 16rem;
   }
 }
 

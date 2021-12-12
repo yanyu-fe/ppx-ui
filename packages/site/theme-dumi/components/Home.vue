@@ -25,7 +25,7 @@ import HomeFooter from './HomeFooter.vue'
 
 .home-content {
   max-width: 960px;
-  margin: 0px auto;
+  margin: 0 auto;
   padding: 0 1.5rem;
 }
 </style>
